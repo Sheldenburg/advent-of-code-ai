@@ -8,7 +8,7 @@ import google.generativeai as genai
 
 load_dotenv()
 
-AI_PROVIDER = "google"
+AI_PROVIDER = "openai"
 
 
 def extract_python_code(response_text):
@@ -37,11 +37,11 @@ def get_genai_response_part1(year: int, day: int):
     with open(f"aoc_{year}_day_{day}.txt", "r") as file:
         input = file.read()
 
-    # system_prompt = SYSTEM.format(
-    #     template=template, input_file=input, year=year, day=day
-    # )
+    system_prompt = SYSTEM.format(
+        template=template, input_file=input, year=year, day=day
+    )
 
-    system_prompt = SYSTEM.format(input_file=input, year=year, day=day)
+    # system_prompt = SYSTEM.format(input_file=input, year=year, day=day)
 
     if AI_PROVIDER == "google":
         genai.configure(api_key=os.environ["GEMINI_API_KEY"])
