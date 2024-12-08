@@ -82,7 +82,7 @@ def get_genai_response_part1(year: int, day: int):
     if AI_PROVIDER == "openai":
         client = OpenAI()
         completion = client.chat.completions.create(
-            model="gpt-4o",
+            model="gpt-o1",
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": PART1_PROMPT},
